@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Form Autofill Helper",
+  "version": "1.0",
+  "description": "Autofill forms using data from My Website",
+  "permissions": ["storage", "scripting", "activeTab"],
+  "host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "Autofill Form",
+    "default_popup": "popup/popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://your-website.com/*"],
+      "js": ["content-script.js"]
+    }
+  ]
+}

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+
+  <style>
+    :root {
+      --bg-primary: #030712;
+      --bg-secondary: rgba(15, 23, 42, 0.9);
+      --bg-tertiary: #020617;
+
+      --text-primary: #e5e7eb;
+      --text-secondary: #9ca3af;
+      --text-tertiary: #6b7280;
+
+      --neural-cyan: #22d3ee;
+      --neural-purple: #7c3aed;
+      --neural-pink: #ec4899;
+
+      --border-color: rgba(148, 163, 184, 0.45);
+      --transition-speed: 0.35s;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      background:
+        radial-gradient(circle at 0% 0%, #1d4ed8 0, transparent 55%),
+        radial-gradient(circle at 100% 100%, #7c3aed 0, transparent 55%),
+        linear-gradient(135deg, #020617 0%, #0b1120 50%, #020617 100%);
+      background-size: 200% 200%;
+      animation: bgShift 18s ease-in-out infinite;
+      position: relative;
+    }
+
+    /* Grid overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="80" height="80" patternUnits="userSpaceOnUse"><path d="M 80 0 L 0 0 0 80" fill="none" stroke="rgba(148,163,184,0.18)" stroke-width="0.5"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grid)"/></svg>');
+      opacity: 0.5;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Corner triangles background */
+    .background-container {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .triangle-group-1,
+    .triangle-group-2 {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      transform-origin: center center;
+      will-change: transform;
+      opacity: 0.95;
+    }
+
+    /* bottom-left red/yellow */
+    .triangle-group-1 {
+      bottom: 0;
+      left: 0;
+      transform: translate(-40%, 40%) rotate(325.932deg);
+    }
+
+    /* top-right red/purple/blue */
+    .triangle-group-2 {
+      top: 0;
+      right: 0;
+      transform: translate(40%, -40%) rotate(251.777deg);
+    }
+
+    /* Glass signup card */
+    .form-container {
+      position: relative;
+      z-index: 1;
+      max-width: 420px;
+      width: 100%;
+      padding: 2.5rem 2.1rem 2.3rem;
+      border-radius: 18px;
+      background: linear-gradient(
+        145deg,
+        rgba(15, 23, 42, 0.96),
+        rgba(15, 23, 42, 0.85)
+      );
+      border: 1px solid var(--border-color);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        0 18px 60px rgba(15, 23, 42, 0.95),
+        0 0 40px rgba(15, 23, 42, 0.9);
+      transition: transform var(--transition-speed) ease,
+                  box-shadow var(--transition-speed) ease,
+                  border-color var(--transition-speed) ease;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: radial-gradient(circle at top left,
+        rgba(34,211,238,0.18),
+        transparent 55%);
+      opacity: 0.85;
+      pointer-events: none;
+    }
+
+    .form-container > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .form-container:hover {
+      transform: translateY(-6px);
+      border-color: rgba(148, 163, 184, 0.85);
+      box-shadow:
+        0 25px 80px rgba(15, 23, 42, 1),
+        0 0 60px rgba(56, 189, 248, 0.35);
+    }
+
+    h2 {
+      font-size: 2.1rem;
+      margin-bottom: 1.6rem;
+      text-align: center;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      background: linear-gradient(135deg,
+        var(--neural-cyan),
+        #3b82f6,
+        var(--neural-purple),
+        var(--neural-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .alert {
+      margin-bottom: 1rem;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(248, 113, 113, 0.5);
+      color: #fecaca;
+      font-size: 0.94rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-primary);
+      font-size: 0.98rem;
+      outline: none;
+      transition: border-color var(--transition-speed) ease,
+                  box-shadow var(--transition-speed) ease,
+                  background var(--transition-speed) ease,
+                  transform var(--transition-speed) ease;
+      backdrop-filter: blur(10px);
+    }
+
+    input::placeholder {
+      color: var(--text-tertiary);
+    }
+
+    input:focus {
+      border-color: var(--neural-cyan);
+      box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.55);
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 0.98);
+    }
+
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 0.5rem;
+      padding: 0.9rem 0;
+      border-radius: 999px;
+      border: none;
+      background: linear-gradient(135deg,
+        var(--neural-cyan),
+        #3b82f6,
+        var(--neural-purple));
+      color: #f9fafb;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow:
+        0 10px 30px rgba(59,130,246,0.45),
+        0 0 25px rgba(59,130,246,0.6);
+      transition: transform var(--transition-speed) ease,
+                  box-shadow var(--transition-speed) ease;
+      position: relative;
+      overflow: hidden;
+      letter-spacing: 0.04em;
+    }
+
+    button[type="submit"]::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg,
+        transparent,
+        rgba(255,255,255,0.32),
+        transparent);
+      transform: translateX(-100%);
+      transition: transform var(--transition-speed) ease;
+    }
+
+    button[type="submit"]:hover {
+      transform: translateY(-3px);
+      box-shadow:
+        0 18px 40px rgba(59,130,246,0.6),
+        0 0 35px rgba(236,72,153,0.7);
+    }
+
+    button[type="submit"]:hover::before {
+      transform: translateX(100%);
+    }
+
+    button[type="submit"]:active {
+      transform: translateY(-1px);
+    }
+
+    .form-footer {
+      margin-top: 1.4rem;
+      text-align: center;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+    }
+
+    .form-footer a {
+      color: var(--neural-cyan);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .form-footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1rem; }
+      .form-container { padding: 2.2rem 1.6rem 2rem; }
+      h2 { font-size: 1.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Corner background triangles -->
+  <div class="background-container">
+    <div class="triangle-group-1" id="triangle1">
+      <svg width="100%" height="100%" viewBox="0 0 388 387" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path
+            d="M116.13 125.931C113.934 106.917 133.046 92.5888 150.681 100.028L291.135 159.272C308.916 166.772 311.855 190.733 296.416 202.309L173.456 294.495C158.016 306.071 135.839 296.532 133.624 277.362L116.13 125.931Z"
+            fill="url(#gradient1)"/>
+          <path
+            d="M141.702 155.147C139.265 135.955 158.615 121.386 176.385 129.033L248.166 159.923C265.797 167.51 268.655 191.313 253.321 202.859L191.385 249.492C176.051 261.037 153.965 251.711 151.547 232.669L141.702 155.147Z"
+            fill="black"/>
+        </g>
+        <defs>
+          <linearGradient id="gradient1" x1="304.91" y1="110.015" x2="82.4806" y2="276.775" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FF0D0D"/>
+            <stop offset="1" stop-color="#E7D000"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <div class="triangle-group-2" id="triangle2">
+      <svg width="100%" height="100%" viewBox="0 0 388 387" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g>
+          <path
+            d="M116.13 125.931C113.934 106.917 133.046 92.5888 150.681 100.028L291.135 159.272C308.916 166.772 311.855 190.733 296.416 202.309L173.456 294.495C158.016 306.071 135.839 296.532 133.624 277.362L116.13 125.931Z"
+            fill="url(#gradient2)"/>
+          <path
+            d="M141.702 155.147C139.265 135.955 158.615 121.386 176.385 129.033L248.166 159.923C265.797 167.51 268.655 191.313 253.321 202.859L191.385 249.492C176.051 261.037 153.965 251.711 151.547 232.669L141.702 155.147Z"
+            fill="black"/>
+        </g>
+        <defs>
+          <linearGradient id="gradient2" x1="304.91" y1="110.015" x2="82.4806" y2="276.775" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#FF0D0D"/>
+            <stop offset="0.576923" stop-color="#2915A5"/>
+            <stop offset="1" stop-color="#000DC8"/>
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+  </div>
+
+  <div class="form-container">
+    <h2>Sign Up</h2>
+
+    {{#if message}}
+      <div class="alert">{{message}}</div>
+    {{/if}}
+
+    <form action="/signup" method="post">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="submit">Sign Up</button>
+    </form>
+
+    <div class="form-footer">
+      Already have an account? <a href="/login">Login</a>
+    </div>
+  </div>
+
+  <script>
+    // scroll‑driven triangle motion (same feel as main page)
+    const triangle1 = document.getElementById('triangle1');
+    const triangle2 = document.getElementById('triangle2');
+
+    const initialRotation1 = 325.932;
+    const initialRotation2 = 251.777;
+
+    let ticking = false;
+
+    function updateTriangles() {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const maxScroll = documentHeight - windowHeight || 1;
+
+      const scrollPercent = Math.min(1, Math.max(0, scrollY / maxScroll));
+
+      const rotate1 = initialRotation1 + scrollPercent * 180;
+      const translateX1 = scrollPercent * 60;
+      const translateY1 = Math.sin(scrollPercent * Math.PI * 2) * 30;
+      const scale1 = 1 + Math.sin(scrollPercent * Math.PI * 2) * 0.06;
+
+      const rotate2 = initialRotation2 - scrollPercent * 180;
+      const translateX2 = -scrollPercent * 60;
+      const translateY2 = Math.cos(scrollPercent * Math.PI * 2) * 30;
+      const scale2 = 1 + Math.cos(scrollPercent * Math.PI * 2) * 0.06;
+
+      triangle1.style.transform = `
+        translate(-40%, 40%)
+        translate(${translateX1}px, ${translateY1}px)
+        rotate(${rotate1}deg)
+        scale(${scale1})
+      `;
+
+      triangle2.style.transform = `
+        translate(40%, -40%)
+        translate(${translateX2}px, ${translateY2}px)
+        rotate(${rotate2}deg)
+        scale(${scale2})
+      `;
+
+      ticking = false;
+    }
+
+    function requestTick() {
+      if (!ticking) {
+        window.requestAnimationFrame(updateTriangles);
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', requestTick);
+    window.addEventListener('resize', updateTriangles);
+    updateTriangles();
+  </script>
+</body>
+</html>
