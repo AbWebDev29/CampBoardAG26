@@ -280,6 +280,40 @@
         padding: 1.8rem 1.5rem;
       }
     }
+
+    /* Building-story homepage layout */
+    body { display: block; min-height: 100vh; height: auto; padding: 28px 24px 56px; overflow-x: hidden; background: radial-gradient(ellipse at 15% 8%, #d9f0ec 0, transparent 38%), radial-gradient(ellipse at 90% 20%, #e3e8fb 0, transparent 40%), #edf2f5; color: #192d45; animation: none; }
+    body::before { opacity: .18; }
+    .background-container { opacity: .14; }
+    .container { width: min(1180px, 100%); max-width: none; margin: 0 auto; }
+    .navbar { position: sticky; top: 14px; z-index: 4; margin-bottom: 22px; background: rgba(15,31,55,.93); border-color: rgba(255,255,255,.14); box-shadow: 0 14px 40px rgba(30,51,78,.18); }
+    .card { min-height: min(570px, 72vh); display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding: clamp(34px, 7vw, 88px); border-radius: 30px; background: linear-gradient(120deg,rgba(15,31,55,.97) 0 54%,rgba(20,41,70,.88)), repeating-linear-gradient(90deg,transparent 0 54px,rgba(176,222,231,.16) 55px 57px), repeating-linear-gradient(0deg,transparent 0 44px,rgba(176,222,231,.12) 45px 47px); box-shadow: 0 28px 75px rgba(30,51,78,.2); }
+    .card h2 { font-size: clamp(2.3rem, 5vw, 4rem); }
+    .card p { max-width: 540px; color: #d2deeb; }
+    .building-storyboard { margin: clamp(52px, 9vw, 110px) 0 28px; display: grid; grid-template-columns: minmax(240px,.78fr) minmax(0,1.22fr); gap: clamp(24px,5vw,64px); align-items: stretch; }
+    .building-story-copy { align-self:center; padding: clamp(25px,4vw,48px); border-radius: 26px; background: #f8f4ec; color: #243750; box-shadow: 0 22px 56px rgba(38,60,80,.12); }
+    .building-story-copy .eyebrow { color:#638d8c; text-transform:uppercase; letter-spacing:.15em; font-size:.75rem; font-weight:800; }
+    .building-story-copy h2 { margin:12px 0; font-size:clamp(1.7rem,3vw,2.7rem); color:#243750; }
+    .building-story-copy p { color:#55677b; line-height:1.7; }
+    .building-story-copy a { color:#247d7a; font-weight:700; }
+    .building-floor-stack { display:grid; grid-template-rows:repeat(3,minmax(130px,1fr)); overflow:hidden; border:1px solid rgba(37,72,94,.24); border-radius:26px; background:linear-gradient(145deg,#dceae8,#dce2f2); box-shadow:0 22px 56px rgba(38,60,80,.13); }
+    .building-floor { position:relative; display:grid; grid-template-columns: minmax(120px,.7fr) 1fr; align-items:center; gap:20px; padding:24px clamp(20px,4vw,42px); border-bottom:1px solid rgba(37,72,94,.22); }
+    .building-floor:last-child { border-bottom:0; }
+    .building-floor::before { content:''; position:absolute; inset:14px auto 14px 16px; width:4px; border-radius:4px; background:#80c9bd; }
+    .building-floor span { color:#638d8c; font-size:.72rem; text-transform:uppercase; letter-spacing:.16em; font-weight:800; }
+    .building-floor h3 { margin-top:6px; color:#243750; font-size:1.2rem; }
+    .building-room { min-height:76px; border:1px solid rgba(74,107,135,.32); border-radius:12px; background:repeating-linear-gradient(90deg,transparent 0 27%,rgba(87,130,152,.22) 28% 29%,transparent 30%),linear-gradient(0deg,transparent 48%,rgba(87,130,152,.24) 49% 51%,transparent 52%),linear-gradient(135deg,rgba(255,255,255,.65),rgba(169,211,202,.34)); box-shadow:inset 0 -8px rgba(71,103,128,.12); }
+    .background-container { display:none !important; }
+    body::before { opacity:0; background-image:none; }
+    .navbar { background:rgba(255,252,248,.9); border-color:rgba(79,112,149,.18); box-shadow:0 12px 34px rgba(62,86,125,.1); }
+    .navbar h1 { background:linear-gradient(110deg,#467bad,#7b83c7); -webkit-background-clip:text; background-clip:text; }
+    .user-info { color:#64748a; }
+    .logout-btn { background:#fff1ed; color:#a95e64; border-color:rgba(195,116,119,.3); box-shadow:none; }
+    .card { background:linear-gradient(120deg,#fff4e4 0%,#ffe3dc 54%,#e4e8ff 100%); border-color:rgba(97,126,166,.2); box-shadow:0 26px 68px rgba(76,96,142,.14); }
+    .card h2 { background:linear-gradient(110deg,#477eae,#777fc3 65%,#af7898); -webkit-background-clip:text; background-clip:text; }
+    .card p { color:#586a80; }
+    .card .btn { background:linear-gradient(110deg,#73c9bd,#8294e8); box-shadow:0 9px 24px rgba(112,151,200,.2); }
+    @media(max-width:760px){ body{padding:16px 14px 42px;} .building-storyboard{grid-template-columns:1fr;} .card{min-height:500px;} .building-floor{grid-template-columns:1fr minmax(110px,.8fr);padding:20px 24px;} }
   </style>
 </head>
 <body>
@@ -340,9 +374,43 @@
       <p>This is your protected home page.</p>
       <a href="/data" class="btn">Go to Data Entry</a>
     </div>
+    <section class="building-storyboard" aria-label="CampusHelp building story">
+      <article class="building-story-copy" id="home-story-copy" aria-live="polite">
+        <span class="eyebrow">Your next steps, made clearer</span>
+        <h2 id="home-story-title">About the journey</h2>
+        <p id="home-story-text">CampusHelp helps students and families navigate college choices, applications, and the move into campus life with practical guidance at each step.</p>
+        <a id="home-story-link" href="/data">Continue to your student profile →</a>
+      </article>
+      <div class="building-floor-stack" aria-label="Three CampusHelp journey floors">
+        <article class="building-floor" data-story-title="About the journey" data-story-text="CampusHelp helps students and families navigate college choices, applications, and the move into campus life with practical guidance at each step." data-story-href="/data"><div><span>Floor 01</span><h3>About</h3></div><div class="building-room" aria-hidden="true"></div></article>
+        <article class="building-floor" data-story-title="Tools for every step" data-story-text="Explore college and course recommendations, application guidance, scholarship discovery, interview preparation, and secure document management." data-story-href="/data"><div><span>Floor 02</span><h3>Features</h3></div><div class="building-room" aria-hidden="true"></div></article>
+        <article class="building-floor" data-story-title="Your student workspace" data-story-text="Keep your student details organized and move from profile setup into your personal workspace whenever you are ready." data-story-href="/extension"><div><span>Floor 03</span><h3>Contact &amp; next steps</h3></div><div class="building-room" aria-hidden="true"></div></article>
+      </div>
+    </section>
   </div>
 
   <script>
+
+    // Skyline zoom and floor-to-story copy progression.
+    const dashboardHero = document.querySelector('.container > .card');
+    const storyFloors = Array.from(document.querySelectorAll('.building-floor'));
+    const storyTitle = document.getElementById('home-story-title');
+    const storyText = document.getElementById('home-story-text');
+    const storyLink = document.getElementById('home-story-link');
+    let buildingFramePending = false;
+    function updateBuildingStory() {
+      const progress = Math.max(0, Math.min(1, window.scrollY / Math.max(1, window.innerHeight * .85)));
+      if (dashboardHero) { dashboardHero.style.transform = `scale(${1 + progress * 1.75})`; dashboardHero.style.opacity = String(1 - progress); dashboardHero.style.transformOrigin = '72% 54%'; }
+      const center = window.innerHeight * .55;
+      let activeFloor = storyFloors[0];
+      storyFloors.forEach((floor) => { const rect = floor.getBoundingClientRect(); if (rect.top < center) activeFloor = floor; });
+      if (activeFloor && storyTitle && storyText && storyLink) { storyTitle.textContent = activeFloor.dataset.storyTitle; storyText.textContent = activeFloor.dataset.storyText; storyLink.href = activeFloor.dataset.storyHref; }
+      buildingFramePending = false;
+    }
+    window.addEventListener('scroll', () => { if (!buildingFramePending) { requestAnimationFrame(updateBuildingStory); buildingFramePending = true; } }, { passive: true });
+    window.addEventListener('resize', updateBuildingStory);
+    updateBuildingStory();
+
     // scroll‑driven triangle motion
     const triangle1 = document.getElementById('triangle1');
     const triangle2 = document.getElementById('triangle2');

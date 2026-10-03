@@ -441,9 +441,372 @@
         font-size: 0.95rem;
       }
     }
+
+    /* CampusHelp shared journey frame: additive styles, keeping each page's original content intact. */
+    .campus-frame-header { position: sticky; top: 10px; z-index: 5; width: min(1180px, calc(100% - 40px)); min-height: 68px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 1px solid rgba(255,255,255,.18); border-radius: 0 0 18px 18px; background: rgba(9, 17, 35, .82); color: #f8fafc; box-shadow: 0 12px 32px rgba(2,6,23,.15); backdrop-filter: blur(14px); }
+    .campus-wordmark { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 750; letter-spacing: .01em; white-space: nowrap; }
+    .campus-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: linear-gradient(145deg,#73d6c5,#9c8df2); color: #101a35; font-weight: 850; }
+    .campus-frame-header nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 20px; }
+    .campus-frame-header nav a { color: #e0e7ff; text-decoration: none; font-size: .88rem; font-weight: 600; }
+    .campus-frame-header nav a:hover { color: #83e0d1; }
+    .campus-frame-header nav .campus-next { padding: 9px 14px; border-radius: 999px; background: #a7f0df; color: #10243a; }
+    .campus-flow-label { color: #bdc9df; font-size: .78rem; letter-spacing: .03em; }
+    .campus-frame-footer { position: relative; z-index: 2; width: min(1180px, calc(100% - 40px)); margin: 28px auto 14px; padding: 12px 18px; display: flex; justify-content: space-between; gap: 12px; color: #cbd5e1; font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; }
+    @media (max-width: 620px) { .campus-frame-header { width: calc(100% - 20px); padding: 11px 13px; align-items: flex-start; } .campus-frame-header nav { gap: 8px 12px; } .campus-frame-header nav a { font-size: .78rem; } .campus-flow-label { width: 100%; text-align: right; } .campus-frame-footer { width: calc(100% - 28px); flex-wrap: wrap; } }
+    body { overflow-x: hidden; }
+    /* CampusHelp building journey: one skyline hero followed by three readable story floors. */
+    html { scroll-snap-type: y proximity; }
+    .campus-frame-header { width: min(1240px, calc(100% - 48px)); margin-top: 14px; border-radius: 18px; }
+    .section { min-height: 92vh; scroll-snap-align: start; padding: clamp(36px, 7vh, 88px) clamp(18px, 5vw, 72px); }
+    .section#intro { min-height: calc(100vh - 82px); }
+    .glass { width: min(1100px, 100%); max-width: 1100px; margin: 0 auto; padding: clamp(30px, 5vw, 64px); border-radius: 30px; background: linear-gradient(135deg, rgba(16,31,56,.94), rgba(21,35,63,.84)); border-color: rgba(173,199,230,.3); box-shadow: 0 28px 80px rgba(3,10,28,.42); animation: none; }
+    .glass:hover { transform: translateY(-3px); border-color: rgba(167,240,223,.65); box-shadow: 0 34px 88px rgba(3,10,28,.48); }
+    .glass::before { background: radial-gradient(ellipse at 82% 48%, rgba(117,205,203,.16), transparent 42%); opacity: 1; }
+    .glass h2 { position: relative; z-index: 1; max-width: 710px; font-size: clamp(2rem, 4vw, 3.7rem); line-height: 1.08; margin-bottom: 1.25rem; }
+    .glass p, .features-list { max-width: 720px; }
+    .section#intro .glass { min-height: min(590px, 75vh); display: flex; flex-direction: column; justify-content: center; padding-right: min(42%, 460px); overflow: hidden; }
+    .section#intro .glass::after { content: ''; position: absolute; right: 5%; bottom: 0; width: 36%; height: 88%; opacity: .88; background: linear-gradient(0deg, rgba(121,212,201,.35), transparent 20%), linear-gradient(90deg, transparent 15%, #243e66 15% 28%, transparent 28% 33%, #34547d 33% 48%, transparent 48% 54%, #203a61 54% 70%, transparent 70% 75%, #45658d 75% 91%, transparent 91%), repeating-linear-gradient(0deg, transparent 0 48px, rgba(185,225,231,.32) 49px 51px), repeating-linear-gradient(90deg, transparent 0 42px, rgba(185,225,231,.24) 43px 45px); clip-path: polygon(0 20%, 22% 20%, 22% 0, 42% 0, 42% 13%, 65% 13%, 65% 4%, 82% 4%, 82% 26%, 100% 26%, 100% 100%, 0 100%); mask-image: linear-gradient(90deg, transparent, #000 22%); pointer-events: none; }
+    .section#founder .glass, .section#features .glass, .section#contact .glass { width: min(1120px, 100%); min-height: 470px; padding-right: 34%; display: flex; flex-direction: column; justify-content: center; }
+    .section#founder .glass::after, .section#features .glass::after, .section#contact .glass::after { content: ''; position: absolute; right: 4%; top: 12%; bottom: 12%; width: 25%; border: 1px solid rgba(163,201,224,.44); border-radius: 13px; background: linear-gradient(0deg, transparent calc(33.33% - 1px), rgba(163,201,224,.58) calc(33.33% - 1px) 33.33%, transparent 33.33% calc(66.66% - 1px), rgba(163,201,224,.58) calc(66.66% - 1px) 66.66%, transparent 66.66%), repeating-linear-gradient(90deg, transparent 0 31%, rgba(163,201,224,.28) 31.5% 32.5%, transparent 33%), linear-gradient(135deg, rgba(118,213,201,.17), rgba(137,136,239,.12)); box-shadow: inset 0 0 0 9px rgba(173,199,230,.06), 0 16px 50px rgba(2,8,24,.22); pointer-events: none; }
+    .section#founder .glass::before, .section#features .glass::before, .section#contact .glass::before { inset: auto 4% 12%; width: 25%; height: 1px; background: rgba(163,201,224,.62); }
+    .section#founder .glass::after { background-color: rgba(227,188,146,.09); }
+    .section#features .glass::after { background-color: rgba(130,176,210,.1); }
+    .section#contact .glass::after { background-color: rgba(134,211,185,.1); }
+    .section#features .features-list li { margin-bottom: .62rem; line-height: 1.5; }
+    .contact-form, .login-form { width: min(100%, 560px); max-width: 560px; }
+    .campus-frame-footer { border-top: 1px solid rgba(203,213,225,.18); }
+    .fab { bottom: 28px; }
+    @media (max-width: 760px) { html { scroll-snap-type: none; } .section, .section#intro { min-height: auto; padding: 32px 12px; } .glass { width: 100%; padding: 32px 24px; } .section#intro .glass { min-height: 580px; padding: 34px 25px 220px; } .section#intro .glass::after { width: 75%; height: 38%; right: 0; opacity: .65; } .section#founder .glass, .section#features .glass, .section#contact .glass { min-height: 530px; padding: 34px 25px 220px; } .section#founder .glass::after, .section#features .glass::after, .section#contact .glass::after { width: 74%; height: 32%; top: auto; bottom: 7%; right: 13%; } .section#founder .glass::before, .section#features .glass::before, .section#contact .glass::before { display:none; } }
+
+    .fab { bottom: 82px; }
+
+
+
+    .building-camera { position:fixed; inset:0; z-index:0; width:100vw; height:100vh; pointer-events:none; overflow:hidden; }
+    #student-floor-1, #student-floor-2, #student-floor-3 { transition:opacity .35s ease; }
+    #camera-interior { filter:drop-shadow(0 24px 30px rgba(65,77,112,.12)); }
+    #camera-city, #camera-interior { will-change:transform,opacity; transition:opacity .28s linear; }
+    #camera-interior { transition:opacity .28s linear, transform .55s cubic-bezier(.2,.72,.2,1); }
+    .wrapper { z-index:1; padding-bottom:0; }
+    .content { z-index:1; }
+    .section { min-height:100vh; padding:clamp(32px,7vh,80px) clamp(18px,6vw,88px); }
+    .section#intro { min-height:100vh; padding:0 clamp(18px,6vw,88px); }
+    .section#intro .glass { position:relative; width:min(1280px,100%); max-width:none; min-height:100vh; height:100vh; margin:0 auto; padding:105px 0 60px; display:flex; align-items:center; justify-content:flex-start; overflow:visible; border:0; border-radius:0; background:transparent; box-shadow:none; backdrop-filter:none; }
+    .section#intro .glass::before, .section#intro .glass::after, .section#intro .hero-city-art { display:none !important; }
+    .hero-copy { position:relative; z-index:2; width:min(640px,48vw); padding:clamp(24px,4vw,54px); border-radius:30px; border:1px solid rgba(255,255,255,.56); background:linear-gradient(100deg,rgba(255,249,242,.93),rgba(255,249,242,.76) 70%,rgba(255,249,242,0)); box-shadow:0 22px 64px rgba(71,84,125,.1); }
+    .section#intro .glass h2 { max-width:640px; color:#536fa8; background:linear-gradient(115deg,#527bb0,#7b83c1 68%,#b57d95); -webkit-background-clip:text; background-clip:text; text-shadow:none; font-size:clamp(2.5rem,5vw,4.8rem); }
+    .section#intro .glass p { max-width:620px; color:#53647a; text-shadow:none; font-size:clamp(1rem,1.3vw,1.15rem); }
+    .section#founder .glass, .section#features .glass, .section#contact .glass { width:min(570px,47vw); min-height:480px; margin:0 auto 0 2%; padding:clamp(28px,4vw,54px); background:rgba(255,248,241,.91); border:1px solid rgba(255,255,255,.75); border-radius:28px; box-shadow:0 24px 68px rgba(74,84,125,.14); backdrop-filter:blur(10px); }
+    .section#founder .glass::before, .section#features .glass::before, .section#contact .glass::before, .section#founder .glass::after, .section#features .glass::after, .section#contact .glass::after, .room-building-art { display:none !important; }
+    .section#founder .glass h2, .section#features .glass h2, .section#contact .glass h2 { font-size:clamp(2rem,3.4vw,3rem); }
+    .section#founder .glass p, .section#features .glass li, .section#contact .glass p { color:#53647a; }
+    .section#features .glass { background:rgba(246,247,255,.92); }
+    .section#contact .glass { background:rgba(255,246,242,.93); }
+    .section#founder .contact-form, .section#features .contact-form, .section#contact .contact-form { max-width:100%; }
+    .section#login .glass { background:rgba(255,250,246,.94); color:#34445e; }
+    .section#login { position:relative; z-index:2; background:linear-gradient(135deg,rgba(255,247,242,.92),rgba(242,244,255,.94)); }
+    .campus-frame-header { z-index:10; }
+    .fab { z-index:11; }
+    @media(max-width:760px) {
+      .section#intro { padding:0 14px; }
+      .section#intro .glass { min-height:100svh; height:100svh; padding:100px 0 32px; }
+      .hero-copy { width:100%; padding:27px 22px; background:rgba(255,249,242,.86); }
+      .section#founder .glass, .section#features .glass, .section#contact .glass { width:100%; min-height:440px; margin:0; }
+    }
+
+    .campus-svg-defs { position:absolute; width:0; height:0; overflow:hidden; }
+    .section#intro .glass { padding-right:min(46%,520px); }
+    .section#intro .glass::after { display:none; }
+    .hero-city-art { position:absolute; z-index:0; inset:0; width:100%; height:100%; object-fit:cover; transform-origin:57% 40%; transition:transform 90ms linear,opacity 100ms linear; will-change:transform,opacity; }
+    .section#intro .glass h2, .section#intro .glass p { position:relative; z-index:2; text-shadow:0 1px 12px rgba(255,250,245,.8); }
+    .section#intro .glass h2 { max-width:640px; }
+    .section#intro .glass p { max-width:620px; }
+    .section#founder .glass::after, .section#features .glass::after, .section#contact .glass::after, .section#founder .glass::before, .section#features .glass::before, .section#contact .glass::before { display:none; }
+    .section#founder .glass, .section#features .glass, .section#contact .glass { padding-right:34%; overflow:visible; }
+    .room-building-art { position:absolute; z-index:0; top:50%; right:4%; width:27%; height:78%; transform:translateY(-50%); overflow:visible; filter:drop-shadow(0 20px 28px rgba(86,96,143,.2)); }
+    .section#founder .glass > *, .section#features .glass > *, .section#contact .glass > * { position:relative; z-index:1; }
+    .section#founder .glass > .room-building-art, .section#features .glass > .room-building-art, .section#contact .glass > .room-building-art { position:absolute; z-index:0; }
+    @media(max-width:760px) { .section#intro .glass { padding-right:25px; padding-bottom:230px; } .hero-city-art { top:auto; height:52%; opacity:.88; } .section#founder .glass, .section#features .glass, .section#contact .glass { padding-right:25px; padding-bottom:250px; } .room-building-art { top:auto; bottom:14px; right:50%; transform:translateX(50%); width:min(62%,260px); height:225px; } }
+
+    /* Dreamy CampusHelp palette inspired by the supplied skyline and room references. */
+    :root { --bg-primary:#f8f5f3; --bg-secondary:rgba(255,255,255,.9); --bg-tertiary:#fffaf5; --text-primary:#273953; --text-secondary:#64738a; --text-tertiary:#7b8797; --neural-cyan:#59bdbb; --neural-purple:#8494e8; --neural-pink:#ee94a9; --neural-blue:#648ce2; --border-color:rgba(80,111,146,.2); }
+    body { background:radial-gradient(ellipse at 12% 0%,#fff0dc 0,transparent 40%),radial-gradient(ellipse at 92% 14%,#e8e5ff 0,transparent 43%),linear-gradient(145deg,#f8f4ed,#fff7f3 48%,#f1f4fc); color:#293b55; }
+    body::before { opacity:0; background-image:none; }
+    .background-container { display:none !important; }
+    .campus-frame-header { background:rgba(255,252,248,.88); color:#293b55; border-color:rgba(80,111,146,.18); box-shadow:0 12px 32px rgba(74,86,120,.1); }
+    .campus-mark { background:linear-gradient(145deg,#a9e3d5,#c3c3f3); color:#293b55; }
+    .campus-frame-header nav a { color:#405675; }
+    .campus-frame-header nav .campus-next { background:linear-gradient(110deg,#a9e3d5,#c8d5ff); color:#273953; }
+    .campus-flow-label { color:#75839a; }
+    .campus-frame-footer { color:#78849a; border-color:rgba(80,111,146,.18); }
+    input, textarea, select { accent-color:#6dbeb7; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+
+    body { background:radial-gradient(ellipse at 10% 0%,#ffe5c6 0,transparent 40%),radial-gradient(ellipse at 90% 20%,#e7dcff 0,transparent 42%),linear-gradient(150deg,#f8f1e9,#fff7f5 55%,#eef3ff); color:#34445e; }
+    .glass { background:linear-gradient(135deg,rgba(255,250,245,.96),rgba(255,255,255,.89)); border-color:rgba(92,119,155,.2); box-shadow:0 25px 70px rgba(91,91,138,.13); }
+    .glass:hover { border-color:rgba(104,168,174,.48); box-shadow:0 30px 74px rgba(91,91,138,.16); }
+    .glass::before { background:radial-gradient(ellipse at 82% 48%,rgba(238,161,165,.22),transparent 46%); }
+    .glass h2 { background:linear-gradient(115deg,#477db8,#7284d2 52%,#bc7ea3); -webkit-background-clip:text; background-clip:text; }
+    .glass p, .features-list li, .form-group label, .login-form .form-footer { color:#5e6d82; }
+    .section#intro .glass::after { opacity:.78; background:linear-gradient(0deg,rgba(240,180,166,.42),transparent 22%),linear-gradient(90deg,transparent 15%,#e9a898 15% 28%,transparent 28% 33%,#8fa9d4 33% 48%,transparent 48% 54%,#9f9bd2 54% 70%,transparent 70% 75%,#f1c6a5 75% 91%,transparent 91%),repeating-linear-gradient(0deg,transparent 0 48px,rgba(255,255,255,.68) 49px 51px),repeating-linear-gradient(90deg,transparent 0 42px,rgba(255,255,255,.44) 43px 45px); }
+    .section#founder .glass::after, .section#features .glass::after, .section#contact .glass::after { border-color:rgba(98,133,167,.35); background-color:rgba(255,255,255,.42); background-image:linear-gradient(0deg,transparent calc(33.33% - 1px),rgba(125,160,184,.38) calc(33.33% - 1px) 33.33%,transparent 33.33% calc(66.66% - 1px),rgba(125,160,184,.38) calc(66.66% - 1px) 66.66%,transparent 66.66%),repeating-linear-gradient(90deg,transparent 0 31%,rgba(125,160,184,.26) 31.5% 32.5%,transparent 33%),linear-gradient(135deg,rgba(255,226,202,.72),rgba(216,221,255,.62)); box-shadow:inset 0 0 0 9px rgba(255,255,255,.32),0 16px 50px rgba(76,92,132,.12); }
+    .section#founder .glass::before, .section#features .glass::before, .section#contact .glass::before { background:rgba(125,160,184,.45); }
+    .contact-form input, .contact-form textarea, .login-form input { background:rgba(255,255,255,.86); border-color:rgba(89,119,153,.25); color:#293b55; }
+    .contact-form input:focus, .contact-form textarea:focus, .login-form input:focus { background:#fff; border-color:#6dbeb7; box-shadow:0 0 0 3px rgba(109,190,183,.18); }
+    .contact-form button, .login-form button[type="submit"] { background:linear-gradient(110deg,#73c9bd,#8294e8); box-shadow:0 10px 24px rgba(112,151,200,.23); }
+    .login-form .form-footer a { color:#527fba; }
+    .fab .btn-circle { background:linear-gradient(140deg,#80d1c3,#9a9ee9); box-shadow:0 8px 22px rgba(109,139,201,.24); }
+    .tooltip::after { background:#fffaf5; color:#435772; border-color:rgba(98,133,167,.28); }
+    .campus-frame-header nav a:hover { color:#548d91; }
+
+    /* Floor-card alignment: release the width reserved for the former in-card illustration. */
+    .section#founder .glass, .section#features .glass, .section#contact .glass { width:min(640px,48vw); padding-right:clamp(28px,4vw,54px) !important; box-sizing:border-box; }
+    .section#founder .glass, .section#features .glass, .section#contact .glass { margin-left:2%; margin-right:auto; }
+    .section#features .glass h2 { width:100%; max-width:none; white-space:normal; overflow-wrap:normal; word-break:normal; }
+    .section#features ul.features-list { width:100%; max-width:none; padding:0; list-style:none; }
+    .section#features .features-list li { position:relative; width:100%; padding-left:1.25rem; margin:0 0 .72rem; line-height:1.45; overflow-wrap:normal; }
+    .section#features .features-list li::before { position:absolute; left:0; top:0; margin:0; }
+    @media (min-width:761px) and (max-width:1000px) { .section#founder .glass, .section#features .glass, .section#contact .glass { width:min(640px,52vw); } }
+    @media(max-width:760px) {
+      .section#founder, .section#features, .section#contact { min-height:auto; align-items:flex-start; padding:calc(76px + env(safe-area-inset-top)) 14px 30px; }
+      .section#founder .glass, .section#features .glass, .section#contact .glass { width:100%; max-width:600px; min-height:0; height:auto; margin:0 auto !important; padding:24px 22px !important; border-radius:22px; }
+      .section#founder .glass h2, .section#features .glass h2, .section#contact .glass h2 { font-size:clamp(1.8rem,8vw,2.5rem); line-height:1.08; margin-bottom:1rem; }
+      .section#founder .glass p, .section#contact .glass p { line-height:1.62; margin-bottom:.8rem; }
+      .section#features ul.features-list { margin:0; }
+      .section#features .features-list li { margin-bottom:.58rem; line-height:1.38; }
+    }
+
   </style>
 </head>
 <body>
+  <header class="campus-frame-header"><a class="campus-wordmark" href="/login" aria-label="CampusHelp login"><span class="campus-mark">C</span><span>CampusHelp</span></a><nav aria-label="Page navigation"><a href="#intro">Welcome</a><a href="#features">Features</a><a href="#contact">Contact</a><a class="campus-next" href="/signup">Create account <span aria-hidden="true">→</span></a></nav></header>
+  <svg class="campus-svg-defs" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="nyc-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#f6b6c0"/><stop offset=".48" stop-color="#ffd9bc"/><stop offset="1" stop-color="#c9d9ef"/></linearGradient>
+      <linearGradient id="nyc-glass" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#5779b7"/><stop offset=".5" stop-color="#9aabd5"/><stop offset="1" stop-color="#637bb1"/></linearGradient>
+      <linearGradient id="nyc-glass-side" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8799c6"/><stop offset="1" stop-color="#526b9f"/></linearGradient>
+      <linearGradient id="cutaway-front" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff6e8"/><stop offset="1" stop-color="#f2c9c8"/></linearGradient>
+      <linearGradient id="cutaway-side" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#929fd0"/><stop offset="1" stop-color="#626eaa"/></linearGradient>
+      <linearGradient id="cutaway-roof" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d9e5f3"/><stop offset="1" stop-color="#aebddb"/></linearGradient>
+      <symbol id="campus-nyc-skyline" viewBox="0 0 1440 820">
+        <rect width="1440" height="820" fill="url(#nyc-sky)"/>
+        <circle cx="1138" cy="150" r="82" fill="#fff2d6" opacity=".86"/>
+        <path d="M0 264C194 207 272 287 445 247s268-71 419-24 290 52 576-27v195H0Z" fill="#f7d5d2" opacity=".48"/>
+        <g fill="#8a9bbf" opacity=".56">
+          <path d="M0 495h108V340h75v-59h38v214h41V370h104v-84h35v209h53V327h85v-64h33v279H0Z"/>
+          <path d="M986 501V328h45v-94h63v61h35v-95h65v132h33V283h61v218h58v-84h94v84Z"/>
+        </g>
+        <g fill="#fff0c8" opacity=".65">
+          <path d="M82 491V384h72v107Zm121 0V345h84v146Zm162 0V355h91v136Zm100 0V300h103v191Zm480 0V340h93v151Zm118 0V314h107v177Zm157 0V365h101v126Zm119 0V326h101v165Z"/>
+        </g>
+        <!-- left foreground towers, with visible side planes -->
+        <g>
+          <path d="M53 489V398l83-36v127Z" fill="#627eb4"/><path d="M136 489V362l28 15v112Z" fill="#435e94"/><path d="M53 398l83-36 28 15-82 38Z" fill="#a8b8d5"/>
+          <path d="M210 493V324h102v169Z" fill="#e9a89e"/><path d="M312 493V345l30 16v132Z" fill="#c98285"/><path d="M210 324l102-37 30 58-102-21Z" fill="#f0c1ae"/>
+          <path d="M360 493V372h128v121Z" fill="#778dbe"/><path d="M488 493V397l30 15v81Z" fill="#526b9c"/><path d="M360 372l128-38 30 63-128-25Z" fill="#aebbd7"/>
+          <path d="M540 493V300h104v193Z" fill="url(#nyc-glass)"/><path d="M644 493V332l29 19v142Z" fill="#536c9e"/><path d="M540 300l104-40 29 72-104-32Z" fill="#bdcbe0"/>
+        </g>
+        <!-- landmark art-deco tower, the camera's zoom target -->
+        <g id="landmark-tower">
+          <path d="M694 493V312h21V274h18V235h18V199h17V163h17V125h13V84h12V45h10V4h8v41h10v40h12v41h17v36h17v38h18v39h18v38h21v216Z" fill="#f7e5d2" stroke="#fff9ed" stroke-width="5"/>
+          <path d="M947 493V312l39-22v203Z" fill="#c98f92"/>
+          <path d="M694 312h253v181H694Z" fill="#f1c6ad" opacity=".62"/>
+          <path d="M828 4v-52h7V4" fill="#f8e6d5" stroke="#fff9ed" stroke-width="4"/>
+          <path d="M799 84h58M782 163h93M755 235h146M715 312h232M694 373h253M694 433h253" stroke="#fff7ea" stroke-width="7" opacity=".9"/>
+          <g fill="#8298bd">
+            <path d="M729 337h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18z"/>
+            <path d="M729 389h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18z"/>
+            <path d="M729 449h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18zm39 0h18v25h-18z"/>
+          </g>
+        </g>
+        <!-- right-hand midtown blocks -->
+        <g>
+          <path d="M1002 493V364h120v129Z" fill="#7086b4"/><path d="M1122 493V382l31 16v95Z" fill="#4f689b"/>
+          <path d="M1155 493V304h105v189Z" fill="#d99091"/><path d="M1260 493V328l29 17v148Z" fill="#b9727d"/>
+          <path d="M1287 493V379h120v114Z" fill="#647bb0"/><path d="M1407 493V399l33 17v77Z" fill="#465e91"/>
+          <path d="M1002 364l120-41 31 59-120-18Zm153-60 105-37 29 61-105-24Zm132 75 120-39 33 59-120-20Z" fill="#c8c9d9"/>
+        </g>
+        <g fill="#ffe7a8" opacity=".9">
+          <path d="M72 417h12v19H72zm30 0h12v19h-12zm30 0h12v19h-12zm94-53h13v19h-13zm31 0h13v19h-13zm31 0h13v19h-13z"/>
+          <path d="M385 402h14v20h-14zm34 0h14v20h-14zm34 0h14v20h-14zm70-52h13v18h-13zm30 0h13v18h-13zm30 0h13v18h-13z"/>
+          <path d="M1030 396h14v20h-14zm34 0h14v20h-14zm34 0h14v20h-14zm79-38h13v18h-13zm30 0h13v18h-13zm30 0h13v18h-13z"/>
+          <path d="M1314 411h14v19h-14zm34 0h14v19h-14zm34 0h14v19h-14z"/>
+        </g>
+        <path d="M0 493h1440v327H0Z" fill="#93a1bd"/>
+        <path d="M0 542c245-46 420 37 700 0s507-35 740 4v274H0Z" fill="#e8b9ab" opacity=".58"/>
+        <path d="M0 656c340-39 522 45 790 7s454-35 650 3" fill="none" stroke="#fff2df" stroke-width="8" opacity=".55"/>
+        <!-- foreground tree and avenue detail -->
+        <g fill="#68877e"><path d="M125 618h11v128h-11z"/><circle cx="131" cy="592" r="41"/><circle cx="102" cy="608" r="25"/><circle cx="157" cy="611" r="26"/><path d="M1280 635h10v118h-10z"/><circle cx="1285" cy="611" r="38"/><circle cx="1256" cy="627" r="22"/><circle cx="1311" cy="629" r="24"/></g>
+        <path d="M0 749h1440v71H0Z" fill="#7888a7" opacity=".62"/>
+      </symbol>
+      <symbol id="campus-building-cutaway" viewBox="0 0 420 560">
+        <rect width="420" height="560" rx="18" fill="#e7eafa"/>
+        <rect width="420" height="166" rx="18" fill="url(#nyc-sky)"/>
+        <circle cx="346" cy="49" r="24" fill="#fff1d7" opacity=".9"/>
+        <g fill="#8295bb" opacity=".8"><path d="M0 163V96h46V62h22v101zm70 0v-46h40V82h20v81zm171 0V99h38V44h23v119zm67 0V76h31V57h21v106z"/></g>
+        <g fill="#f8dfaa" opacity=".9"><path d="M10 112h8v14h-8zm21 0h8v14h-8zm51 21h8v13h-8zm22 0h8v13h-8zm190-58h8v14h-8zm21 0h8v14h-8zm53 54h8v14h-8z"/></g>
+        <!-- tower side and roof create the isometric depth -->
+        <path d="M103 132 299 67l73 32-197 70Z" fill="url(#cutaway-roof)" stroke="#8795bc" stroke-width="2"/>
+        <path d="M299 169 372 99v411l-73 42Z" fill="url(#cutaway-side)" stroke="#596a9d" stroke-width="2"/>
+        <!-- three open room floors -->
+        <g class="room-floor-1"><path d="M103 169h196v124H103Z" fill="#fff0df"/><path d="M103 169h196v124H103Z" fill="none" stroke="#fffaf3" stroke-width="5"/><path d="M119 185h57v73h-57Z" fill="#9bb9d5"/><path d="M126 194h43v53h-43Z" fill="#f4d8d0"/><path d="M205 260h69v9h-69z" fill="#b9847c"/><path d="M213 226h47v34h-47z" fill="#e9b79f"/><path d="M219 214h35v12h-35z" fill="#8195bf"/><path d="M220 269v18m38-18v18" stroke="#7c789c" stroke-width="4"/><path d="M183 270h11v21h-11z" fill="#7c8d79"/><circle cx="188" cy="265" r="12" fill="#90b8a4"/></g>
+        <g class="room-floor-2"><path d="M103 293h196v124H103Z" fill="#f1eaff"/><path d="M103 293h196v124H103Z" fill="none" stroke="#fffaf3" stroke-width="5"/><path d="M119 309h57v73h-57Z" fill="#92aed1"/><path d="M126 318h43v53h-43Z" fill="#f6d4cc"/><path d="M196 382h77v8h-77z" fill="#8a8ebc"/><path d="M203 348h63v33h-63z" fill="#fff8e8" stroke="#c3afd1" stroke-width="3"/><path d="M208 354h53" stroke="#91a5c2" stroke-width="4"/><path d="M222 390v21m42-21v21" stroke="#807e9e" stroke-width="4"/><path d="M181 393h12v22h-12z" fill="#759486"/><circle cx="187" cy="386" r="13" fill="#a1c5a5"/></g>
+        <g class="room-floor-3"><path d="M103 417h196v125H103Z" fill="#e4f3ee"/><path d="M103 417h196v125H103Z" fill="none" stroke="#fffaf3" stroke-width="5"/><path d="M119 433h57v73h-57Z" fill="#92aed1"/><path d="M126 442h43v53h-43Z" fill="#f7d3c7"/><path d="M192 498c0-18 18-28 39-28s38 10 38 28v21h-77z" fill="#c58c9b"/><path d="M197 487h67" stroke="#e5bdc5" stroke-width="6"/><path d="M199 518v19m60-19v19" stroke="#7d789e" stroke-width="5"/><path d="M275 483h11v56h-11z" fill="#aa887e"/><circle cx="281" cy="468" r="19" fill="#83b8a3"/><circle cx="269" cy="476" r="10" fill="#a5cfb2"/></g>
+        <path d="M103 293h196m-196 124h196m-196 125h196" stroke="#fffdf7" stroke-width="7"/>
+        <path d="M299 293 372 263m-73 154 73-30m-73 155 73-30" stroke="#7281ad" stroke-width="4"/>
+        <path d="M91 543h221" stroke="#596b98" stroke-width="8" stroke-linecap="round"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <svg class="building-camera" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="camera-sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#efaab9"/><stop offset=".52" stop-color="#ffdfc5"/><stop offset="1" stop-color="#ceddf0"/></linearGradient>
+      <linearGradient id="camera-glass-a" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8ca7cf"/><stop offset=".5" stop-color="#627eae"/><stop offset="1" stop-color="#405f92"/></linearGradient>
+      <linearGradient id="camera-glass-b" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#788db7"/><stop offset="1" stop-color="#506a9e"/></linearGradient>
+      <linearGradient id="camera-stone" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fff0dc"/><stop offset="1" stop-color="#e6b5a8"/></linearGradient>
+      <linearGradient id="camera-side" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#8292ba"/><stop offset="1" stop-color="#4f6192"/></linearGradient>
+      <linearGradient id="room-study" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5e6"/><stop offset="1" stop-color="#f6d9d1"/></linearGradient>
+      <linearGradient id="room-collab" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e9f3ef"/><stop offset="1" stop-color="#d8e3f7"/></linearGradient>
+      <pattern id="camera-windows" width="28" height="34" patternUnits="userSpaceOnUse"><rect x="5" y="5" width="13" height="20" rx="2" fill="#ffe7bb" opacity=".82"/><path d="M11.5 5v20" stroke="#fff6df" stroke-width="1" opacity=".7"/></pattern>
+      <pattern id="camera-grid" width="38" height="44" patternUnits="userSpaceOnUse"><path d="M0 0h28v32H0z" fill="#dbe7f2" opacity=".62"/><path d="M14 0v32M0 16h28" stroke="#fff9ec" stroke-width="2"/></pattern>
+      <filter id="building-shadow" x="-.3" y="-.2" width="1.8" height="1.5"><feGaussianBlur stdDeviation="20"/></filter>
+      <filter id="student-shadow" x="-.25" y="-.2" width="1.6" height="1.5"><feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#45536f" flood-opacity=".2"/></filter>
+      <linearGradient id="skin-warm" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f1c09b"/><stop offset=".62" stop-color="#d89a76"/><stop offset="1" stop-color="#b9775b"/></linearGradient>
+      <linearGradient id="skin-deep" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d79772"/><stop offset=".58" stop-color="#aa6b51"/><stop offset="1" stop-color="#84513f"/></linearGradient>
+      <linearGradient id="study-shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8dc3b6"/><stop offset=".58" stop-color="#5f9f98"/><stop offset="1" stop-color="#477e80"/></linearGradient>
+      <linearGradient id="laptop-shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#a5b8e0"/><stop offset=".58" stop-color="#7189bd"/><stop offset="1" stop-color="#566a9d"/></linearGradient>
+      <linearGradient id="collab-shirt" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e5a296"/><stop offset=".6" stop-color="#cf7f7a"/><stop offset="1" stop-color="#a95f6e"/></linearGradient>
+    </defs>
+    <g id="camera-city">
+      <rect width="1440" height="900" fill="url(#camera-sky)"/>
+      <circle cx="1185" cy="145" r="92" fill="#fff1d4" opacity=".9"/>
+      <path d="M0 237c170-82 286 28 458-30s278-79 429-18 290 47 553-44v225H0Z" fill="#f7c5c9" opacity=".38"/>
+      <g fill="#a6afc5" opacity=".63">
+        <path d="M0 558V388h72v-66h35v236Zm109 0V353h92v-70h30v275Zm136 0V421h85V323h45v235Zm135 0V370h70v-99h37v287Zm182 0V330h72v-96h38v324Zm465 0V360h77v-98h41v296Zm126 0V322h90v-72h38v308Zm133 0V390h71v-93h38v261Z"/>
+      </g>
+      <!-- distant midtown towers -->
+      <g>
+        <path d="M38 568V446l64-36v158Z" fill="#5d78ab"/><path d="M102 568V410l28 18v140Z" fill="#3e5a8e"/><path d="M38 446l64-36 28 18-64 38Z" fill="#a9b7d1"/>
+        <path d="M169 568V380l94-37v225Z" fill="#dda29b"/><path d="M263 568V343l32 20v205Z" fill="#b9757d"/><path d="M169 380l94-37 32 20-94 39Z" fill="#f0c4b4"/>
+        <path d="M326 568V440l122-48v176Z" fill="url(#camera-glass-a)"/><path d="M448 568V392l32 20v156Z" fill="#4d679b"/><path d="M326 440l122-48 32 20-122 49Z" fill="#b1c2dc"/>
+        <path d="M501 568V356l104-36v248Z" fill="#d9c3c0"/><path d="M605 568V320l30 19v229Z" fill="#ab929e"/><path d="M501 356l104-36 30 19-104 39Z" fill="#f5dfd4"/>
+        <path d="M1028 568V408l127-48v208Z" fill="#7188b5"/><path d="M1155 568V360l34 20v188Z" fill="#506b9d"/><path d="M1028 408l127-48 34 20-127 50Z" fill="#c6cde0"/>
+        <path d="M1210 568V365l107-41v244Z" fill="#d58e91"/><path d="M1317 568V324l34 19v225Z" fill="#aa6f7d"/><path d="M1210 365l107-41 34 19-107 42Z" fill="#f0c1ad"/>
+        <path d="M1360 568V422l80-30v176Z" fill="#657eae"/><path d="M1360 422l80-30 20 15-80 31Z" fill="#c9ccda"/>
+      </g>
+      <!-- stepped art-deco landmark: camera target -->
+      <g id="camera-landmark">
+        <path d="M659 568V379h34v-50h28v-49h31v-54h28v-53h25v-48h21V85h16V47h11V15h9V-4h7v19h10v32h16v40h22v48h25v52h29v55h31v51h30v51h31v224Z" fill="url(#camera-stone)" stroke="#fff8ed" stroke-width="5"/>
+        <path d="M1020 379 1092 344v224l-72 35Z" fill="#bb858a"/>
+        <path d="M659 379h361v189H659Z" fill="#e7b9a9" opacity=".38"/>
+        <path d="M821 85h83M789 174h147M750 280h224M693 379h327M659 441h361M659 505h361" stroke="#fff8ed" stroke-width="7" opacity=".92"/>
+        <path d="M821 85v294m83-294v294m-115-205v205m147-205v205m-186-99v99m224-99v99" stroke="#fffaf0" stroke-width="4" opacity=".65"/>
+        <g fill="#788db7">
+          <path d="M684 393h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17z"/>
+          <path d="M684 455h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17z"/>
+          <path d="M684 519h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17zm38 0h17v31h-17z"/>
+        </g>
+        <path d="M840 15v-57m-19 57h38" stroke="#fff8ed" stroke-width="5"/>
+      </g>
+      <g fill="url(#camera-windows)" opacity=".92">
+        <path d="M38 455h79v103H38zM169 402h95v155h-95zM326 462h123v96H326zM501 380h105v178H501zM1028 434h128v124h-128zM1210 390h108v168h-108zM1360 444h84v114h-84z"/>
+      </g>
+      <path d="M0 568h1440v332H0Z" fill="#8e9cb9"/>
+      <path d="M0 616c222-48 445 40 700 0s515-42 740 5v279H0Z" fill="#e7c0b1" opacity=".62"/>
+      <path d="M0 745c260-51 420 40 688-4s505-32 752 6" fill="none" stroke="#fff1df" stroke-width="10" opacity=".7"/>
+      <g fill="#718e83"><path d="M133 702h12v145h-12z"/><circle cx="139" cy="682" r="40"/><circle cx="109" cy="695" r="24"/><circle cx="166" cy="699" r="24"/><path d="M1282 718h12v130h-12z"/><circle cx="1288" cy="694" r="39"/><circle cx="1258" cy="706" r="23"/><circle cx="1316" cy="711" r="24"/></g>
+      <path d="M0 836h1440v64H0Z" fill="#7789a9" opacity=".5"/>
+    </g>
+    <!-- Full-viewport isometric cutaway scene; three lived-in student floors. -->
+    <g id="camera-interior" opacity="0">
+      <rect width="1440" height="900" fill="#f8e9e4"/>
+      <rect width="1440" height="270" fill="url(#camera-sky)" opacity=".72"/>
+      <circle cx="1190" cy="128" r="66" fill="#fff0d0" opacity=".8"/>
+      <g fill="#7f90b7" opacity=".55"><path d="M0 360V198h92v-58h42v220Zm116 0V175h104v-70h36v255Zm1138 0V185h112v-74h41v249Zm130 0V242h80v-71h42v189Z"/></g>
+      <g id="cutaway-structure" transform="translate(112 0)">
+      <ellipse cx="840" cy="820" rx="510" ry="54" fill="#657396" opacity=".16" filter="url(#building-shadow)"/>
+      <!-- deep right wall and roof: visible 3D extrusion -->
+      <path d="M542 315 1035 197 1179 55 686 173Z" fill="url(#cutaway-roof)" stroke="#fff8ee" stroke-width="5"/>
+      <path d="M574 306 1035 196m-316-18 451-109" stroke="#fffdf7" stroke-width="5" opacity=".48"/>
+      <path d="M696 268l78-19 22 11-78 20Z" fill="#7484ae"/><path d="M696 268v18l22 12v-18m78-31v18l22 12v-18" fill="#a8b4cf"/>
+      <path d="M830 231 921 209l26 14-91 24Z" fill="#b4bfd7"/><path d="M833 230v24m18-28v24m18-29v24m18-28v24" stroke="#8998ba" stroke-width="3"/>
+      <path d="M1035 197 1179 55v679l-144 142Z" fill="url(#camera-side)" stroke="#f3e8e5" stroke-width="5"/>
+      <!-- glazed side elevation, with perspective mullions and floor bands -->
+      <path d="M1054 214 1160 110v94l-106 111Zm0 116 106-105v95l-106 111Zm0 116 106-105v95l-106 111Zm0 116 106-105v95l-106 111Zm0 116 106-105v80l-106 111Z" fill="url(#camera-grid)" opacity=".62"/>
+      <path d="M1040 496 1177 359M1040 686 1177 549M1040 876 1177 739" stroke="#eee8ee" stroke-width="10" opacity=".8"/>
+      <path d="M542 315 1035 197M542 505 1035 387M542 695 1035 577M542 876 1035 758" stroke="#fffdf7" stroke-width="7" opacity=".9"/>
+      <!-- three rooms viewed through the open front -->
+      <g id="student-floor-1">
+        <path d="M542 315h493v181H542Z" fill="url(#room-study)" stroke="#fff9f0" stroke-width="7"/>
+        <path d="M571 337h103v117H571Z" fill="#97b6d5" stroke="#fffaf0" stroke-width="7"/><path d="M580 346h85v99h-85Z" fill="#f5c8bd"/><path d="M622 346v99m-42-49h85" stroke="#fff6df" stroke-width="4"/>
+        <path d="M690 459h153v13H690z" fill="#a87876"/><path d="M710 416h109v43H710z" fill="#d9a48d"/><path d="M737 397h68v19h-68z" fill="#8297bc"/><path d="M726 472v20m79-20v20" stroke="#756f92" stroke-width="6"/>
+        <!-- student reading at desk -->
+        <ellipse cx="895" cy="493" rx="37" ry="5" fill="#6c7895" opacity=".16"/>
+        <circle cx="895" cy="389" r="17" fill="url(#skin-warm)"/><path d="M877 386q2-23 23-22 17 1 21 19l-9-5-9 2-13 9-12 5Z" fill="#50445b"/>
+        <path d="M879 410q16-11 32 0l15 49h-59Z" fill="url(#study-shirt)"/><path d="m882 455 18 2-9 34h-20zm19 2 17-1 17 32-19 2z" fill="#526587"/>
+        <path d="m878 419-24 21m51-21 22 17" stroke="url(#skin-warm)" stroke-width="8" stroke-linecap="round"/><path d="m835 438 25-5 12 18-25 7z" fill="#fff8e9" stroke="#7788a7" stroke-width="3"/>
+        <g filter="url(#student-shadow)">
+          <path d="M874 380q3-21 21-21 19 0 24 19l-5 14-8-8-14 4-13 9Z" fill="#4c4358"/>
+          <path d="M882 389q8-5 17 0m5 1q3 1 5 0" stroke="#654b4e" stroke-width="2" stroke-linecap="round"/><path d="M897 392l-2 7 5 1m-7 7q7 4 13-1" fill="none" stroke="#a5685d" stroke-width="2" stroke-linecap="round"/>
+          <path d="M884 414q19 10 36-1m-41 21q15 10 31 8" fill="none" stroke="#d7eee5" stroke-width="4" opacity=".58"/>
+          <path d="M873 462h20m10 0h16m-35 14-2 12m32-12 6 12" stroke="#344c76" stroke-width="3"/><path d="M859 489h21l-2 5h-23zm51 0h19l4 5h-21z" fill="#f5eee3"/>
+          <path d="M851 433q-7 5-13 9m77-23 13 11" stroke="#f0c09b" stroke-width="3" stroke-linecap="round"/>
+        </g>
+        <path d="M542 496 1035 496" stroke="#fffaf3" stroke-width="9"/>
+      </g>
+      <g id="student-floor-2">
+        <path d="M542 505h493v181H542Z" fill="#e8eafa" stroke="#fff9f0" stroke-width="7"/>
+        <path d="M571 527h103v117H571Z" fill="#8ba9ce" stroke="#fffaf0" stroke-width="7"/><path d="M580 536h85v99h-85Z" fill="#f4c9bc"/><path d="M622 536v99m-42-49h85" stroke="#fff6df" stroke-width="4"/>
+        <path d="M682 650h164v13H682z" fill="#8190b4"/><path d="M702 605h90v43h-90z" fill="#fff8eb" stroke="#bdabc7" stroke-width="4"/><path d="M711 613h72m-72 13h57" stroke="#90a5c1" stroke-width="4"/><path d="M716 663v18m91-18v18" stroke="#746f91" stroke-width="6"/>
+        <!-- student working on a laptop -->
+        <ellipse cx="900" cy="680" rx="40" ry="5" fill="#6c7895" opacity=".16"/>
+        <circle cx="900" cy="574" r="17" fill="url(#skin-deep)"/><path d="M882 570q2-23 23-23 17 0 21 19l-9-4-10 3-13 9-11 4Z" fill="#3e4560"/>
+        <path d="M883 595q17-11 34 0l17 49h-69Z" fill="url(#laptop-shirt)"/><path d="m887 642 18 2-8 34h-20zm20 2 17-1 20 32-19 2z" fill="#4d6087"/>
+        <path d="m882 604-24 22m49-22 28 16" stroke="url(#skin-deep)" stroke-width="8" stroke-linecap="round"/><path d="M849 627h54v25h-54z" fill="#dceaf0" stroke="#61759c" stroke-width="3"/><path d="M842 652h69l-6 7h-57z" fill="#61759c"/>
+        <g filter="url(#student-shadow)">
+          <path d="M884 565q2-21 20-21 19 0 24 19l-5 13-9-7-14 4-13 8Z" fill="#3e4560"/>
+          <path d="M892 575q8-4 17 0m4 1q3 1 5 0" stroke="#68483f" stroke-width="2" stroke-linecap="round"/><path d="M907 578l-2 7 5 1m-7 6q7 4 13-1" fill="none" stroke="#8f594b" stroke-width="2" stroke-linecap="round"/>
+          <path d="M888 600q17 10 36 0m-35 40h23m-29 20-2 14m37-14 10 14" fill="none" stroke="#e0e5fa" stroke-width="4" opacity=".65"/>
+          <path d="M874 677h21l-2 5h-23zm58 0h22l4 5h-22z" fill="#f5eee3"/>
+        </g>
+        <path d="M542 686 1035 686" stroke="#fffaf3" stroke-width="9"/>
+      </g>
+      <g id="student-floor-3">
+        <path d="M542 695h493v181H542Z" fill="url(#room-collab)" stroke="#fff9f0" stroke-width="7"/>
+        <path d="M571 717h103v117H571Z" fill="#97b6d5" stroke="#fffaf0" stroke-width="7"/><path d="M580 726h85v99h-85Z" fill="#f4c8bf"/><path d="M622 726v99m-42-49h85" stroke="#fff6df" stroke-width="4"/>
+        <path d="M707 803h177v13H707z" fill="#9c7b8b"/><path d="M727 814v39m132-39v39" stroke="#77789b" stroke-width="7"/>
+        <!-- two students sharing a project -->
+        <ellipse cx="778" cy="834" rx="35" ry="5" fill="#6c7895" opacity=".15"/><ellipse cx="862" cy="834" rx="35" ry="5" fill="#6c7895" opacity=".15"/>
+        <circle cx="758" cy="754" r="15" fill="url(#skin-warm)"/><path d="M743 751q2-21 19-20 15 0 19 18l-8-5-10 2-12 9-9 3Z" fill="#51465c"/><path d="M744 775q14-10 29 0l12 27h-54Z" fill="url(#collab-shirt)"/><path d="m748 799 16 2-7 29h-17zm18 2 15-1 13 28h-18z" fill="#526587"/>
+        <path d="m746 781-20 18m43-18 22 15" stroke="url(#skin-warm)" stroke-width="7" stroke-linecap="round"/>
+        <circle cx="842" cy="751" r="15" fill="url(#skin-deep)"/><path d="M827 748q2-21 19-20 15 0 19 18l-8-5-10 2-12 9-9 3Z" fill="#3f4766"/><path d="M828 772q14-10 29 0l12 28h-54Z" fill="url(#study-shirt)"/><path d="m832 798 16 2-5 30h-17zm18 2 15-1 13 28h-18z" fill="#526587"/>
+        <path d="m830 779-20 15m43-15 20 16" stroke="url(#skin-deep)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M775 790h50l-4 13h-42z" fill="#fff4d8" stroke="#777f9f" stroke-width="3"/>
+        <g filter="url(#student-shadow)">
+          <path d="M744 747q2-18 17-18 16 0 20 17l-6 11-7-7-12 4-10 7Z" fill="#51465c"/>
+          <path d="M750 757q7-4 14 0m4 1q2 1 4 0" stroke="#704d43" stroke-width="2" stroke-linecap="round"/><path d="M765 760l-2 6 4 1m-6 5q5 3 10-1" fill="none" stroke="#a96b5d" stroke-width="2" stroke-linecap="round"/>
+          <path d="M743 783q12 7 26 0m-30 16 13 2m8-1 13-4" fill="none" stroke="#f2d4ce" stroke-width="3" opacity=".75"/>
+          <path d="M829 744q2-18 17-18 16 0 20 17l-6 11-7-7-12 4-10 7Z" fill="#39425e"/>
+          <path d="M835 754q7-4 14 0m4 1q2 1 4 0" stroke="#68483f" stroke-width="2" stroke-linecap="round"/><path d="M850 757l-2 6 4 1m-6 5q5 3 10-1" fill="none" stroke="#8f594b" stroke-width="2" stroke-linecap="round"/>
+          <path d="M826 780q12 7 26 0m-28 15 13 2m8-1 13-4" fill="none" stroke="#d8efe6" stroke-width="3" opacity=".75"/>
+          <path d="M733 828h18l-2 5h-20zm42 0h18l3 5h-20zm49 0h18l-2 5h-20zm42 0h18l3 5h-20z" fill="#f5eee3"/>
+        </g>
+      </g>
+      <!-- room finishes: recessed ceiling lights, floorboards, skirting and soft contact shadows -->
+      <path d="M554 474h465M554 664h465M554 854h465" stroke="#c9b7ad" stroke-width="4" opacity=".56"/>
+      <path d="M557 482h462M557 672h462M557 862h462" stroke="#fffdf8" stroke-width="3" opacity=".85"/>
+      <g fill="#fff9e9" stroke="#e5d8cf" stroke-width="2"><ellipse cx="726" cy="331" rx="17" ry="5"/><ellipse cx="930" cy="331" rx="17" ry="5"/><ellipse cx="726" cy="521" rx="17" ry="5"/><ellipse cx="930" cy="521" rx="17" ry="5"/><ellipse cx="726" cy="711" rx="17" ry="5"/><ellipse cx="930" cy="711" rx="17" ry="5"/></g>
+      <path d="M558 484h456M558 674h456M558 864h456" stroke="#9d8e9b" stroke-width="2" opacity=".28"/>
+      <!-- heavy side columns and floor beams give the section architectural depth -->
+      <path d="M520 300h22v581h-22zm515 0h23v581h-23z" fill="#fff9ef" opacity=".96"/>
+      <path d="M542 496h493m-493 190h493m-493 190h493" stroke="#fdf7ee" stroke-width="13"/>
+      <path d="M1035 496l144-70m-144 260 144-70m-144 260 144-70" stroke="#7481aa" stroke-width="6" opacity=".78"/>
+      <path d="M498 881h562" stroke="#53668f" stroke-width="12" stroke-linecap="round"/>
+      </g>
+    </g>
+  </svg>
+
   <!-- Corner background triangles -->
   <div class="background-container">
     <div class="triangle-group-1" id="triangle1">
@@ -521,11 +884,25 @@
       <!-- INTRO SECTION -->
       <section id="intro" class="section">
         <div class="glass">
+          <div class="hero-copy">
+          <svg class="hero-city-art" viewBox="0 0 1440 820" role="img" aria-label="Pastel New York skyline with a landmark art deco tower"><use href="#campus-nyc-skyline" x="0" y="0" width="1440" height="820"></use></svg>
           <h2>Welcome to Effortless College Journey</h2>
           <p>
             Are you feeling overwhelmed by the college application process? Our platform is dedicated to guiding you every step of the way, from researching the perfect colleges to submitting your applications and preparing for campus life.
             <br><br>
             Whether you need help choosing the right course, crafting a standout application, finding scholarships, or navigating admissions interviews, our expert resources and personalized support are designed to make your college journey smooth and effortless.
+          </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOUNDER SECTION -->
+      <section id="founder" class="section">
+        <div class="glass">
+          <svg class="room-building-art" viewBox="0 0 420 560" role="img" aria-label="Isometric three-floor building interior with a New York skyline"><use href="#campus-building-cutaway" x="0" y="0" width="420" height="560"></use></svg>
+          <h2>About the Founder</h2>
+          <p>
+            Our founder is passionate about making higher education accessible and stress-free for everyone. With experience in education consulting and a deep understanding of student needs, this platform was created to empower students and families to make informed decisions and achieve their academic dreams.
           </p>
         </div>
       </section>
@@ -533,6 +910,7 @@
       <!-- FEATURES SECTION -->
       <section id="features" class="section">
         <div class="glass">
+          <svg class="room-building-art" viewBox="0 0 420 560" role="img" aria-label="Isometric three-floor building interior with a New York skyline"><use href="#campus-building-cutaway" x="0" y="0" width="420" height="560"></use></svg>
           <h2>Key Features</h2>
           <ul class="features-list">
             <li>Personalized college and course recommendations</li>
@@ -545,19 +923,10 @@
         </div>
       </section>
 
-      <!-- FOUNDER SECTION -->
-      <section id="founder" class="section">
-        <div class="glass">
-          <h2>About the Founder</h2>
-          <p>
-            Our founder is passionate about making higher education accessible and stress-free for everyone. With experience in education consulting and a deep understanding of student needs, this platform was created to empower students and families to make informed decisions and achieve their academic dreams.
-          </p>
-        </div>
-      </section>
-
       <!-- CONTACT SECTION -->
       <section id="contact" class="section">
         <div class="glass">
+          <svg class="room-building-art" viewBox="0 0 420 560" role="img" aria-label="Isometric three-floor building interior with a New York skyline"><use href="#campus-building-cutaway" x="0" y="0" width="420" height="560"></use></svg>
           <h2>Contact Us</h2>
           <p>
             Have questions or need personalized guidance? Reach out — we are here to help.
@@ -604,6 +973,40 @@
   </div>
 
   <script>
+
+    // The camera fills the viewport: scroll into the landmark tower and reveal its student floors.
+    const cameraCity = document.getElementById('camera-city');
+    const cameraInterior = document.getElementById('camera-interior');
+    const introScene = document.getElementById('intro');
+    const storyFloors = [
+      { section: document.getElementById('founder'), floor: document.getElementById('student-floor-1') },
+      { section: document.getElementById('features'), floor: document.getElementById('student-floor-2') },
+      { section: document.getElementById('contact'), floor: document.getElementById('student-floor-3') }
+    ];
+    let cameraTicking = false;
+    function updateBuildingCamera() {
+      if (!cameraCity || !cameraInterior || !introScene) return;
+      const progress = Math.max(0, Math.min(1, -introScene.getBoundingClientRect().top / Math.max(1, window.innerHeight * .88)));
+      const scale = 1 + progress * 2.05;
+      const targetX = 850;
+      const targetY = 430;
+      cameraCity.setAttribute('transform', `translate(${targetX * (1 - scale)} ${targetY * (1 - scale)}) scale(${scale})`);
+      cameraCity.style.opacity = String(1 - progress);
+      let activeFloor = -1;
+      const viewportMark = window.innerHeight * .54;
+      storyFloors.forEach((item, index) => {
+        if (item.section) { const rect = item.section.getBoundingClientRect(); if (rect.top <= viewportMark && rect.bottom > viewportMark) activeFloor = index; }
+      });
+      const interiorScale = .86 + progress * .14;
+      cameraInterior.setAttribute('transform', `translate(${720 * (1 - interiorScale)} ${450 * (1 - interiorScale)}) scale(${interiorScale})`);
+      cameraInterior.style.opacity = String(progress);
+      storyFloors.forEach((item, index) => { if (item.floor) item.floor.style.opacity = activeFloor === -1 || activeFloor === index ? '1' : '.46'; });
+      cameraTicking = false;
+    }
+    window.addEventListener('scroll', () => { if (!cameraTicking) { requestAnimationFrame(updateBuildingCamera); cameraTicking = true; } }, { passive: true });
+    window.addEventListener('resize', updateBuildingCamera);
+    updateBuildingCamera();
+
     // scroll‑driven triangle motion
     const triangle1 = document.getElementById('triangle1');
     const triangle2 = document.getElementById('triangle2');
@@ -659,5 +1062,6 @@
     window.addEventListener('resize', updateTriangles);
     updateTriangles();
   </script>
+  <footer class="campus-frame-footer"><span>CampusHelp · Your college journey, organized</span><span>Welcome · Profile · Workspace</span></footer>
 </body>
 </html>

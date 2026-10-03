@@ -431,9 +431,69 @@
         font-size: 0.8rem;
       }
     }
+
+    /* CampusHelp shared journey frame: additive styles, keeping each page's original content intact. */
+    .campus-frame-header { position: sticky; top: 10px; z-index: 5; width: min(1180px, calc(100% - 40px)); min-height: 68px; margin: 0 auto; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border: 1px solid rgba(255,255,255,.18); border-radius: 0 0 18px 18px; background: rgba(9, 17, 35, .82); color: #f8fafc; box-shadow: 0 12px 32px rgba(2,6,23,.15); backdrop-filter: blur(14px); }
+    .campus-wordmark { display: inline-flex; align-items: center; gap: 10px; color: inherit; text-decoration: none; font-weight: 750; letter-spacing: .01em; white-space: nowrap; }
+    .campus-mark { width: 34px; height: 34px; display: grid; place-items: center; border-radius: 11px; background: linear-gradient(145deg,#73d6c5,#9c8df2); color: #101a35; font-weight: 850; }
+    .campus-frame-header nav { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 10px 20px; }
+    .campus-frame-header nav a { color: #e0e7ff; text-decoration: none; font-size: .88rem; font-weight: 600; }
+    .campus-frame-header nav a:hover { color: #83e0d1; }
+    .campus-frame-header nav .campus-next { padding: 9px 14px; border-radius: 999px; background: #a7f0df; color: #10243a; }
+    .campus-flow-label { color: #bdc9df; font-size: .78rem; letter-spacing: .03em; }
+    .campus-frame-footer { position: relative; z-index: 2; width: min(1180px, calc(100% - 40px)); margin: 28px auto 14px; padding: 12px 18px; display: flex; justify-content: space-between; gap: 12px; color: #cbd5e1; font-size: .76rem; letter-spacing: .07em; text-transform: uppercase; }
+    @media (max-width: 620px) { .campus-frame-header { width: calc(100% - 20px); padding: 11px 13px; align-items: flex-start; } .campus-frame-header nav { gap: 8px 12px; } .campus-frame-header nav a { font-size: .78rem; } .campus-flow-label { width: 100%; text-align: right; } .campus-frame-footer { width: calc(100% - 28px); flex-wrap: wrap; } }
+    .campus-frame-header + .background-container { z-index: 0; }
+    body { display: block; min-height: 100vh; height: auto; padding: 0 24px 24px; overflow-x: hidden; background: radial-gradient(ellipse at 12% 8%, #17355d 0, transparent 42%), radial-gradient(ellipse at 88% 12%, #34456f 0, transparent 46%), #111d33; background-size: auto; animation: none; }
+    body::before { opacity: .16; }
+    .background-container { opacity: .22; }
+    .container { width: min(1240px, 100%); max-width: none; margin: 28px auto 0; }
+    .navbar { border-color: rgba(175,198,226,.24); box-shadow: 0 16px 42px rgba(2,8,24,.3); }
+    .card { border-color: rgba(175,198,226,.24); box-shadow: 0 22px 58px rgba(2,8,24,.3); }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 26px 64px rgba(2,8,24,.36); }
+    .entry-card { background: linear-gradient(145deg,rgba(24,43,70,.98),rgba(19,35,59,.96)); border-color: rgba(169,195,220,.2); box-shadow: 0 12px 28px rgba(2,8,24,.22); }
+    .entry-card:hover { box-shadow: 0 16px 34px rgba(2,8,24,.3); }
+    .campus-frame-footer { width: min(1180px, 100%); }
+    @media (max-width: 640px) { body { padding: 0 12px 20px; } .container { margin-top: 18px; } }
+
+    /* Dreamy CampusHelp palette inspired by the supplied skyline and room references. */
+    :root { --bg-primary:#f8f5f3; --bg-secondary:rgba(255,255,255,.9); --bg-tertiary:#fffaf5; --text-primary:#273953; --text-secondary:#64738a; --text-tertiary:#7b8797; --neural-cyan:#59bdbb; --neural-purple:#8494e8; --neural-pink:#ee94a9; --neural-blue:#648ce2; --border-color:rgba(80,111,146,.2); }
+    body { background:radial-gradient(ellipse at 12% 0%,#fff0dc 0,transparent 40%),radial-gradient(ellipse at 92% 14%,#e8e5ff 0,transparent 43%),linear-gradient(145deg,#f8f4ed,#fff7f3 48%,#f1f4fc); color:#293b55; }
+    body::before { opacity:0; background-image:none; }
+    .background-container { display:none !important; }
+    .campus-frame-header { background:rgba(255,252,248,.88); color:#293b55; border-color:rgba(80,111,146,.18); box-shadow:0 12px 32px rgba(74,86,120,.1); }
+    .campus-mark { background:linear-gradient(145deg,#a9e3d5,#c3c3f3); color:#293b55; }
+    .campus-frame-header nav a { color:#405675; }
+    .campus-frame-header nav .campus-next { background:linear-gradient(110deg,#a9e3d5,#c8d5ff); color:#273953; }
+    .campus-flow-label { color:#75839a; }
+    .campus-frame-footer { color:#78849a; border-color:rgba(80,111,146,.18); }
+    input, textarea, select { accent-color:#6dbeb7; }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior:auto !important; animation-duration:.01ms !important; transition-duration:.01ms !important; } }
+
+    body { background:radial-gradient(ellipse at 14% 0%,#ffead7 0,transparent 40%),radial-gradient(ellipse at 91% 13%,#e5e3ff 0,transparent 44%),linear-gradient(145deg,#f6f3ed,#fff8f4 52%,#f0f4fc); color:#293b55; }
+    .navbar { background:rgba(255,252,248,.9); border-color:rgba(79,112,149,.18); box-shadow:0 12px 34px rgba(62,86,125,.1); }
+    .navbar h1 { background:linear-gradient(110deg,#467bad,#7b83c7); -webkit-background-clip:text; background-clip:text; }
+    .navbar .user-info { color:#64748a; }
+    .navbar .user-info a, .navbar .logout-btn { background:#fff1ed; color:#a95e64; border:1px solid rgba(195,116,119,.3); box-shadow:none; }
+    .card { background:rgba(255,253,250,.94); border-color:rgba(79,112,149,.18); box-shadow:0 20px 54px rgba(62,86,125,.12); }
+    .card:hover { box-shadow:0 23px 58px rgba(62,86,125,.14); }
+    .card h2 { background:linear-gradient(110deg,#4b86b7,#7d83c8 60%,#bb849f); -webkit-background-clip:text; background-clip:text; }
+    .entry-card { background:linear-gradient(145deg,#fffdf9,#f8f7ff); border-color:rgba(79,112,149,.18); box-shadow:0 10px 28px rgba(62,86,125,.1); }
+    .entry-card h3 { color:#344a64; }
+    .entry-card p { color:#62748a; }
+    .entry-card small { color:#8793a3; }
+    .entry-card button, .btn { background:linear-gradient(110deg,#73c9bd,#8294e8); box-shadow:0 7px 20px rgba(112,151,200,.18); }
+    .empty-state p { color:#687a90; }
+    .alert { color:#9b5258; background:#fff0ed; border-color:#f0c8c3; box-shadow:none; }
+    th { background:#e9ecf8; color:#344a64; }
+    tr:nth-child(even) td { background:#f4f5fa; }
+    td { color:#536982; border-color:rgba(79,112,149,.16); }
+    td a { color:#527fba; }
+
   </style>
 </head>
 <body>
+  <header class="campus-frame-header"><a class="campus-wordmark" href="/login" aria-label="CampusHelp home"><span class="campus-mark">C</span><span>CampusHelp</span></a><nav aria-label="Workspace navigation"><span class="campus-flow-label">Step 3 of 3 · Student workspace</span><a href="/data">Edit profile</a></nav></header>
   <!-- Corner background triangles -->
   <div class="background-container">
     <div class="triangle-group-1" id="triangle1">
@@ -646,5 +706,6 @@
     window.addEventListener('resize', updateTriangles);
     updateTriangles();
   </script>
+  <footer class="campus-frame-footer"><span>CampusHelp · Your college journey, organized</span><span>Welcome · Profile · Workspace</span></footer>
 </body>
 </html>
